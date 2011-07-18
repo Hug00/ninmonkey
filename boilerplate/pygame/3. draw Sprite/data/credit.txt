@@ -1,0 +1,2 @@
+image is from official pygame website logo.
+ http://www.pygame.org/
