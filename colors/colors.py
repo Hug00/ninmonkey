@@ -24,7 +24,7 @@ def random_color(search=None):
         
     default to choice() of full list"""    
     if search: c = choice(search_color(search))
-    else: c = choice(THECOLORS)
+    else: c = choice(THECOLORS.values())
     
     #debug: print type(c), c # returns Color()
     return c 
