@@ -1,0 +1,1 @@
+Run "colortest.py" for the example.
