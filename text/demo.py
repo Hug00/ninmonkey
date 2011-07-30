@@ -25,8 +25,8 @@ import pygame
 from pygame.locals import *
 from pygame import Color, Rect, Surface
 # nin
-from text import Text
-from text.Text import FontManager
+#from nin import Text
+from nin.text import FontManager
 
 #from Text import *
 
