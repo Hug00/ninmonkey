@@ -2,3 +2,6 @@ syntax: glob
 Thumbs.db
 *.pyc
 *.lnk
+nin.text/text/fonts-open-type/*
+nin.text/text/fonts/*
+nin.text/text/fontswin32/*
