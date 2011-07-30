@@ -15,7 +15,8 @@ Other people's projects:
         #Todo: -unit testing
         -done? todo: test exception on bad fontname (load_font)
         
-        __all__ = TextLine, TextFPS, FontManager
+        - __all__ = TextLine, TextFPS, FontManager
+        -
     
 '''
 import logging
@@ -29,9 +30,6 @@ from text.text import FontManager
 
 DEBUG_OFF = True
 f = FontManager()
-#from Text import FontManager, TextLine
-#import Text.FontManager
-
     #    t  = TextLine('foo')
     #    print 'done'
     

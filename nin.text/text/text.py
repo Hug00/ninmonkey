@@ -25,10 +25,13 @@ Other people's projects:
         -cleanup code comments before posting.
         #Todo: -unit testing
             -done? todo: test exception on bad fontname (load_font)
-    
+    (draw like wesnoth)
+        bg=black, text_surface opacity = 50%
 '''
   
 #WINDOW_TITLE = "testing nin.text / .font"
+
+print 'hi' 
 
 import logging
 import pygame
@@ -140,7 +143,8 @@ class TextLine(object):
         fontkey(name,size)
         text
         surf?
-        dirty?        
+        dirty?
+        
     """
     pass
     def __init__(self, text, topleft=None, fontkey=None, aa=True, color=None, color_bg=None):
