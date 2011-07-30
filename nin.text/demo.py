@@ -24,11 +24,10 @@ import logging
 import pygame
 from pygame.locals import *
 from pygame import Color, Rect, Surface
-# nin
-#from nin import Text
-from nin.text import FontManager
-
-#from Text import *
+# works
+from text.text import FontManager
+#todo: fix import so * is not needed
+    #from text.text import *
 
 DEBUG_OFF = True
 f = FontManager()
