@@ -11,13 +11,11 @@ Other people's projects:
     http://www.pygame.org/wiki/SimpleFontManager?parent=CookBook
 
 # Todo: #
-    
-    [will be when googlecode dir]
-        -load from 'demo.py': import text
-            !!Todo: !! need move this code to text.py (outside __init__) !!
-        -cleanup code comments before posting.
+            -cleanup code comments before posting http://www.pygame.org
         #Todo: -unit testing
-            -done? todo: test exception on bad fontname (load_font)
+        -done? todo: test exception on bad fontname (load_font)
+        
+        __all__ = TextLine, TextFPS, FontManager
     
 '''
 import logging
