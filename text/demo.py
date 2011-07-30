@@ -20,13 +20,18 @@ Other people's projects:
             -done? todo: test exception on bad fontname (load_font)
     
 '''
-DEBUG_OFF = True
 import logging
 import pygame
 from pygame.locals import *
 from pygame import Color, Rect, Surface
 # nin
-import Text
+from text import Text
+from text.Text import FontManager
+
+#from Text import *
+
+DEBUG_OFF = True
+f = FontManager()
 #from Text import FontManager, TextLine
 #import Text.FontManager
 
