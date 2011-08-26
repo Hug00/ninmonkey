@@ -6,7 +6,7 @@ import numpy as np
 from random import randint
 import os
 
-debug = True # display map as text
+debug = False # display map as text
 
 TILE_W = 32
 TILE_H = 32
@@ -24,7 +24,7 @@ class Map():
         self.load_tileset("tileset.bmp")
         
         self.reset()
-        #  self.randomize()
+        self.randomize()
     
     def load_tileset(self, image="tileset.bmp"):        
         """load tileset image"""
