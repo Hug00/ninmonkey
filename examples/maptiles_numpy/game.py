@@ -17,6 +17,7 @@ GAME_TITLE = "maptiles numpy {nin.example} "
 GAME_HOTKEYS = """== Hotkeys! ===
     space = randomize tiles
     ESC    = quit
+    s = toggle scrolling
 """
     
 class Game():
@@ -58,9 +59,14 @@ class Game():
             elif event.type == KEYDOWN:
                 # exit on Escape
                 if event.key == K_ESCAPE: self.done = True
+                # toggle bool
+                elif event.key == K_s: self.map.scrolling = not self.map.scrolling
                 elif event.key== K_SPACE:
                     # random map
                     self.map.randomize()    
+                    
+            elif event.type == MOUSEMOTION:
+                self.map.scroll(event.rel)
 
     def draw(self):
         """render screen"""
