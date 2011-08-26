@@ -27,6 +27,8 @@ Other people's projects:
             -done? todo: test exception on bad fontname (load_font)
     (draw like wesnoth)
         bg=black, text_surface opacity = 50%
+        
+    todo: view sysfont patch fix : https://gist.github.com/1162771
 '''
   
 #WINDOW_TITLE = "testing nin.text / .font"

@@ -137,3 +137,5 @@ if __name__ == "__main__":
         print("Example does not use cached surfaced.")
     else: 
         print 'done'
+        import sys
+        print sys.version
