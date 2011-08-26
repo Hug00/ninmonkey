@@ -7,6 +7,11 @@ from map import Map
 GAME_ABOUT = """about:
     -using tileset and numpy 2D array for map data.
     -randomizes tiles, and creates roads
+    
+    -Howto set/get tile at loc=(x,y)
+        tiles[x,y] = 2
+        tileid = tiles[x,y]
+    
 """
 GAME_TITLE = "maptiles numpy {nin.example} "
 GAME_HOTKEYS = """== Hotkeys! ===

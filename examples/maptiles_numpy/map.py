@@ -16,12 +16,12 @@ TILE_ID_GROUND = 2
 class Map():
     """stores map info, and draws tiles.
     Map is stored as an array of int's which correspond to the tile id."""
-    
     def __init__(self,game):
         """set default map"""
         self.game = game
         self.screen = game.screen
         self.load_tileset("tileset.bmp")
+        
         
         self.reset()
         self.randomize()
@@ -37,7 +37,7 @@ class Map():
         self.tiles_x = self.game.width / TILE_W
         self.tiles_y = self.game.height / TILE_H
 
-        # create empty array, fill with zeros.
+        # create empty array, fill with zeros.                  array[tiles_x, tiles_y]
         self.tiles = np.zeros( (self.tiles_x, self.tiles_y ), dtype=int)        
         if debug: print "\n-- self.tiles = --\n", self.tiles
             
