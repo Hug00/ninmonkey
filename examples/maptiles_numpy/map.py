@@ -20,12 +20,24 @@ class Map():
         """set default map"""
         self.game = game
         self.screen = game.screen
-        self.load_tileset("tileset.bmp")
         
+        self.scrolling = False
+        
+        self.load_tileset("tileset.bmp")
         
         self.reset()
         self.randomize()
-    
+        
+    def scroll(self, rel):
+        """scroll map using relative coordinates"""
+        if not self.scrolling: return
+
+        self.offset = (
+            self.offset[0] + rel[0],
+            self.offset[1] + rel[1] )
+        
+        print self.offset
+        
     def load_tileset(self, image="tileset.bmp"):        
         """load tileset image"""
         self.tileset = pygame.image.load(os.path.join("images", image)).convert()
@@ -34,8 +46,13 @@ class Map():
     def reset(self):
         """clear map, reset to defaults."""
         # calculate number of tiles to fill the screen
+        
+        """screen size:
         self.tiles_x = self.game.width / TILE_W
         self.tiles_y = self.game.height / TILE_H
+        """
+        # or fixed size
+        self.tiles_x, self.tiles_y = 60, 40
 
         # create empty array, fill with zeros.                  array[tiles_x, tiles_y]
         self.tiles = np.zeros( (self.tiles_x, self.tiles_y ), dtype=int)        
@@ -43,7 +60,7 @@ class Map():
             
     def randomize(self):
         """sets tiles to random values"""
-
+        self.offset = (-200, -200)
         # randomize all tiles
         for y in range(self.tiles_y):
             for x in range(self.tiles_x):
@@ -56,16 +73,22 @@ class Map():
         if debug: print "\n-- self.tiles = --\n", self.tiles
             
     def draw(self):
-        # loop all tiles, and draw
-        
+        # loop all tiles, and draw        
         for y in range( self.tiles_y ):
                 for x in range( self.tiles_x ):
                     # draw tile at (x,y)
                     id = self.tiles[x,y]
 
                     # get rect() to draw only tile from the tileset that we want
-                    destRect = Rect( x * TILE_W, y * TILE_H, TILE_W, TILE_H )
-                    srcRect = Rect( id * TILE_W, 0, TILE_W, TILE_H )
+                    dest = Rect( x * TILE_W, y * TILE_H, TILE_W, TILE_H )
+                    src = Rect( id * TILE_W, 0, TILE_W, TILE_H )
 
-                    self.screen.blit( self.tileset, destRect, srcRect )
+                    # note, for scrolling tiles, uncomment:
+                    if self.scrolling:
+                        dest.left += self.offset[0]
+                        dest.top += self.offset[1]                        
+
+                    self.screen.blit( self.tileset, dest, src )
+                    
+                    
         
