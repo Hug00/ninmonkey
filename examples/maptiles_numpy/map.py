@@ -1,9 +1,12 @@
 import pygame
 from pygame.locals import *
 from pygame import Rect
-#  from jakelib.util import *
+
 import numpy as np
 from random import randint
+import os
+
+debug = True # display map as text
 
 TILE_W = 32
 TILE_H = 32
@@ -13,12 +16,15 @@ TILE_ID_GROUND = 2
 class Map():
     """stores map info, and draws tiles.
     Map is stored as an array of int's which correspond to the tile id."""
-        
+    
     def __init__(self,game):
         """set default map"""
         self.game = game
         self.screen = game.screen
         self.load_tileset("tileset.bmp")
+        
+        self.reset()
+        #  self.randomize()
     
     def load_tileset(self, image="tileset.bmp"):        
         """load tileset image"""
@@ -27,15 +33,13 @@ class Map():
         
     def reset(self):
         """clear map, reset to defaults."""
-
         # calculate number of tiles to fill the screen
         self.tiles_x = self.game.width / TILE_W
         self.tiles_y = self.game.height / TILE_H
 
         # create empty array, fill with zeros.
-        self.tiles = np.zeros( (self.tiles_x, self.tiles_y ), dtype=int)
-        
-        self.randomize()
+        self.tiles = np.zeros( (self.tiles_x, self.tiles_y ), dtype=int)        
+        if debug: print "\n-- self.tiles = --\n", self.tiles
             
     def randomize(self):
         """sets tiles to random values"""
@@ -49,7 +53,8 @@ class Map():
         # set a couple roads: one horizontal, one vertical.
         self.tiles[1,:] = TILE_ID_ROAD
         self.tiles[:,2] = TILE_ID_ROAD
-        
+        if debug: print "\n-- self.tiles = --\n", self.tiles
+            
     def draw(self):
         # loop all tiles, and draw
         
